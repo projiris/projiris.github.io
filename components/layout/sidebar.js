@@ -33,7 +33,7 @@ class Sidebar extends PureComponent {
                 </a>
                 <a
                     className=${css(styles.button)}
-                    href="https://github.com/misterfresh/projiris/tree/master"
+                    href="https://github.com/projiris/projiris.github.io"
                     target="_blank"
                 >
                     Source on GitHub
