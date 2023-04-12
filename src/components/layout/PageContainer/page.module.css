@@ -1,0 +1,79 @@
+.page {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+.pageMain {
+    opacity: 1;
+    width: 100%;
+    display: block;
+    transition: width linear 750ms;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+.pageMain.mainNarrow {
+    margin: 0;
+    width: 100%;
+}
+.pageContent {
+    padding: 5rem;
+    overflow-x: hidden;
+    max-width: 100%;
+    transition: width linear 750ms;
+    width: 100%;
+    margin-left: 0;
+}
+.pageContent.contentNarrow {
+    width: 100%;
+    margin-left: 0;
+}
+@media (min-width: 768px) {
+    .pageMain {
+        display: block;
+    }
+    .pageMain.mainNarrow {
+        width: 60%;
+        display: block;
+    }
+    .pageContent {
+        width: 100%;
+    }
+    .pageContent.contentNarrow {
+        width: 100%;
+    }
+}
+@media (min-width: 992px) {
+    .pageMain {
+        flex-direction: row;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .pageMain.mainNarrow {
+        width: 70%;
+        display: block;
+    }
+    .pageContent {
+        width: 60%;
+    }
+    .pageContent.contentNarrow {
+        width: 100%;
+    }
+}
+@media (min-width: 1200px) {
+    .pageMain.mainNarrow {
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .pageContent {
+        width: 60%;
+    }
+    .pageContent.contentNarrow {
+        width: 52%;
+    }
+}

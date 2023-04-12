@@ -1,0 +1,116 @@
+.hero {
+    position: relative;
+    display: block;
+    height: 15rem;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.title {
+    padding-top: 20pt;
+    color: #000000;
+    font-size: 20pt;
+    padding-bottom: 6pt;
+    font-family: Arial;
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+    letter-spacing: -1pt;
+    font-weight: 700;
+    margin: 0.67em 0 10px;
+}
+
+.articleContent p {
+    margin: 0;
+    padding-top: 0;
+    color: #666666;
+    font-size: 15pt;
+    padding-bottom: 16pt;
+    font-family: Arial;
+    line-height: 1.15;
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+    text-align: left;
+}
+
+.page {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.article {
+    opacity: 1;
+    width: 100%;
+    overflow-x: hidden;
+    display: block;
+    transition: width linear 750ms;
+    margin: 0;
+    padding: 0;
+    animation-name: fadein;
+    animation-duration: 1s, 1s;
+    animation-iteration-count: 1;
+    max-width: 100%;
+}
+
+.articleContent {
+    display: block;
+    width: 100%;
+    padding: 3rem 8%;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.articleContent.contentNarrow {
+    display: block;
+    width: 100%;
+    padding: 3rem 8%;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        height: 30rem;
+    }
+    .article.mainNarrow {
+        width: 60%;
+    }
+    .articleContent {
+        padding: 3rem 16%;
+    }
+    .articleContent.contentNarrow {
+        padding: 3rem 8%;
+    }
+}
+
+@media (min-width: 992px) {
+    .article.mainNarrow {
+        width: 70%;
+    }
+    .articleContent {
+        padding: 3rem 18%;
+    }
+    .articleContent.contentNarrow {
+        padding: 3rem 12%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .article.mainNarrow {
+        width: 75%;
+    }
+    .articleContent {
+        padding: 3rem 24%;
+    }
+    .articleContent.contentNarrow {
+        padding: 3rem 20%;
+    }
+}

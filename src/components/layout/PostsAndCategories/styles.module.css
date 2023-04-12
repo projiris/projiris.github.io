@@ -1,0 +1,49 @@
+.togglePostsCategory {
+    border-bottom: solid 1px #f5f5f5;
+    line-height: 3rem;
+}
+.togglePanel {
+    display: inline-block;
+    font-weight: 700;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: transparent;
+    outline: 0;
+    line-height: 30px;
+    letter-spacing: 2pt;
+    text-decoration: none;
+    color: #b6b6b6;
+    border: none;
+    border-bottom: solid 2px transparent;
+}
+.togglePanel:active {
+    border-bottom: solid 2px #000;
+    color: #666;
+}
+.togglePanel:hover {
+    border-bottom: solid 2px #000;
+    color: #eee;
+}
+.togglePanel:focus {
+    outline: 0;
+}
+.togglePanel.buttonActive {
+    border-bottom: solid 2px #000;
+    color: #666;
+}
+.list.postsOrCategories {
+    animation: fadein 2s;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+.hide {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    display: none;
+}

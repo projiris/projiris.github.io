@@ -1,0 +1,52 @@
+.aboutContent {
+    display: block;
+}
+
+.image {
+    border-radius: 50%;
+    width: 150px;
+    border: 0;
+    max-width: 100%;
+    vertical-align: middle;
+    float: left;
+    margin-right: 2rem;
+}
+
+.infoTitle {
+    margin: 30px 0 20px;
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+
+.para {
+    font-size: 2rem;
+    margin: 0 0 30px;
+}
+
+.footer {
+    padding: 10px 0;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.footer .contact {
+    text-decoration: none;
+    background-color: transparent;
+    color: #999;
+    border-bottom: none;
+    font-size: 1.4rem;
+}
+
+.footer .contact:hover {
+    text-decoration: none;
+    background-color: transparent;
+    color: #eee;
+    outline: 0;
+    transition: all 0.4s;
+    border-bottom: none;
+}
