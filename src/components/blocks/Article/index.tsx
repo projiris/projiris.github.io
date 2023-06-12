@@ -20,8 +20,7 @@ export const Article: FunctionComponent<ArticleProps> = ({article, category}) =>
             <p className={cn(articleStyles.para, articleStyles.meta)}>
             <span
                 title={'Comments for ' + article.title}
-                data-disqus-url={window.location.protocol +
-                window.location.hostname +
+                data-disqus-url={'http://localhost:3000/' +
                 article.uri}
                 data-disqus-identifier={article.id}
                 className="disqus-comment-count"

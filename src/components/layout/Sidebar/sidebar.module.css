@@ -14,6 +14,18 @@ aside.sidebar {
     max-width: 100%;
 }
 
+aside.sidebar .info {
+    padding: 5%;
+    background: rgba(50, 50, 50, 0.5);
+    color: #fafafa;
+    height: 21rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
 aside.sidebar.sidebarNarrow {
     padding: 0;
     background-position: center;
@@ -28,6 +40,10 @@ aside.sidebar.sidebarNarrow {
         height: 45rem;
         position: relative;
         width: 100%;
+    }
+
+    aside.sidebar .info {
+        height: 28rem;
     }
 
     aside.sidebar.sidebarNarrow {
@@ -69,18 +85,6 @@ aside.sidebar.sidebarNarrow {
         width: 35%;
         left: 25%;
     }
-}
-
-aside.sidebar .info {
-    padding: 5%;
-    background: rgba(50, 50, 50, 0.5);
-    color: #fafafa;
-    height: 28rem;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: column;
 }
 
 aside.sidebar .primary {

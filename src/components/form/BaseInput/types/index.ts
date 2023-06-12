@@ -1,4 +1,4 @@
-export type InputTypes = 'text' | 'textarea'
+export type InputTypes = 'text' | 'textarea' | 'email'
 
 export type BaseInputProps = {
     className: string;
@@ -11,5 +11,5 @@ export type BaseInputProps = {
     step?: number;
     value: string;
     required?: boolean;
-    onInput: () => void;
+    onInput: () => {};
 }

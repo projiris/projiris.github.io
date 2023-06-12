@@ -2,7 +2,6 @@ import styles from './spinner.module.css'
 import {FunctionComponent} from "react";
 import {SpinnerProps} from "./types";
 
-
 export const Spinner: FunctionComponent<SpinnerProps> = ({ width, height, rayon = 45 }) => {
     return <svg
             className={styles.spinner}

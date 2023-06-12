@@ -1,3 +1,3 @@
-export {Article, Articles} from './article'
-export {Category, Categories} from './category'
-export {PanelType, Panels} from './panels'
+export type {Article, Articles} from './article'
+export type {Category, Categories} from './category'
+export {type PanelType, Panels} from './panels'

@@ -9,7 +9,7 @@ export const useCategoriesAndArticles = () => {
         categories: {},
         articles: {},
     })
-
+/*
     useEffect(() => {
         (async() => {
             const [getCategoriesAndArticlesError, response] =
@@ -22,6 +22,6 @@ export const useCategoriesAndArticles = () => {
         })()
 
     }, [])
-
-    return categoriesAndArticles
+*/
+    return [categoriesAndArticles, setCategoriesAndArticles]
 }

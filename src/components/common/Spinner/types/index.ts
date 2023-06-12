@@ -1,5 +1,5 @@
 export type SpinnerProps = {
-    width: Number;
-    height: Number;
-    rayon?: Number;
+    width: number;
+    height: number;
+    rayon?: number;
 }

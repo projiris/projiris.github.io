@@ -1,3 +1,4 @@
+'use client'
 import {FunctionComponent, useEffect, useState} from 'react'
 import { to } from '@/utils/to'
 import {DISQUS_SHORTNAME} from "@/constants";
@@ -31,7 +32,9 @@ export const DisqusCount: FunctionComponent<DisqusCountProps> = ({ categories })
         }
     }
     const removeDisqusCountScript = () => {
+        // @ts-ignore
         if (disqusCountScript && disqusCountScript.parentNode) {
+            // @ts-ignore
             disqusCountScript.parentNode.removeChild(disqusCountScript)
             setDisqusCountScript(null)
         }
@@ -39,8 +42,11 @@ export const DisqusCount: FunctionComponent<DisqusCountProps> = ({ categories })
 
     useEffect(() => {
         (async() => {
+            // @ts-ignore
             window.disqus_shortname = DISQUS_SHORTNAME
+            // @ts-ignore
             if (typeof window.DISQUSWIDGETS !== 'undefined') {
+                // @ts-ignore
                 window.DISQUSWIDGETS = undefined
             }
             if (Object.values(categories).length) {

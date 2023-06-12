@@ -1,0 +1,30 @@
+.form {
+    margin-bottom: 5rem;
+}
+.form label {
+    font-size: 2rem;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    margin: 15px 0 0;
+}
+.form button {
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+.form button .spinner {
+    margin-right: 1rem;
+}
+.form button.green,
+.form button.green:disabled {
+    background-color: green;
+}
+.form button.red,
+.form button.red:disabled {
+    background-color: red;
+}
+.form .error {
+    color: red;
+}
+.form .required:after {
+    color: red;
+    content: ' *';
+}

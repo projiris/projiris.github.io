@@ -1,6 +1,6 @@
 export const Api = {
     async call(
-        url,
+        url: string,
         options = {
             method: 'GET',
             credentials: 'include',
@@ -21,7 +21,7 @@ export const Api = {
     },
 
     async get(
-        url,
+        url: string,
         options = {
             method: 'GET',
             credentials: 'include',
@@ -31,7 +31,7 @@ export const Api = {
     },
 
     async post(
-        url,
+        url: string,
         options = {
             method: 'POST',
             credentials: 'include',

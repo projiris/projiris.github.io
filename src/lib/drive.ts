@@ -2,20 +2,23 @@ import { Api } from './api'
 import { to } from '@/utils/to'
 
 import {GOOGLE_API_KEY, DRIVE_EXPORT_URL} from "@/constants";
+import {Article, Articles, Categories, Category} from "@/types";
+import {ArticlesAndCategories} from "@/hooks/types";
+import {SpreadsheetResponse} from "@/lib/types";
 
 export const Drive = {
     ...Api,
     driveExportUrl: DRIVE_EXPORT_URL,
     isFetchingCategories: false,
 
-    async getSpreadsheet(fileId: string) {
+    async getSpreadsheet(fileId: string): Promise<[null | Error, SpreadsheetResponse?]> {
         return await to(
             this.get(
                 `https://sheets.googleapis.com/v4/spreadsheets/${fileId}/values/Posts?alt=json&key=${GOOGLE_API_KEY}`,
                 {
                     credentials: 'omit',
                 }
-            ).then((response) => response.json())
+            ).then((response) => (response.json() as Promise<SpreadsheetResponse>))
         )
     },
 
@@ -32,7 +35,7 @@ export const Drive = {
         )
     },
 
-    async fetchCategories(dashboardId: string) {
+    async fetchCategories(dashboardId: string): Promise<[Error | null, ArticlesAndCategories?]> {
         const [getSpreadsheetError, spreadsheet] = await this.getSpreadsheet(
             dashboardId
         )
@@ -40,13 +43,14 @@ export const Drive = {
             console.log('getSpreadsheetError', getSpreadsheetError)
             return [getSpreadsheetError]
         }
-        const rows = spreadsheet.values
+        const rows = (spreadsheet as SpreadsheetResponse).values
         rows.shift()
 
-        const categories = {}
-        const articles = {}
+        const categories = {} as Categories
+        const articles = {} as Articles
         rows.forEach((row) => {
-            articles[row?.[4]] = {
+            const articleId = row?.[4]
+            articles[articleId] = {
                 id: row?.[4],
                 title: row?.[0],
                 subtitle: row?.[1],
@@ -57,8 +61,8 @@ export const Drive = {
                 lastUpdated: row?.[6],
                 date: this.formatDate(row?.[6]),
                 uri: `/article/${row?.[4]}/${this.slug(row?.[0], 'article')}`,
-            }
-            const categoryId = articles[row?.[4]]?.categoryId
+            } as Article
+            const categoryId = articles[articleId]?.categoryId
             const isExistingCategory = Object.values(categories).some(
                 (category) => category.id === categoryId
             )
@@ -69,10 +73,10 @@ export const Drive = {
                     id: categoryId,
                     title: row?.[2],
                     imageName: row?.[3],
-                    image: articles[row?.[4]]?.image,
+                    image: articles[articleId]?.image,
                     articles: [row?.[4]],
                     uri: `/category/${categoryId}`,
-                }
+                } as Category
             }
         })
         return [
@@ -141,7 +145,7 @@ export const Drive = {
         const fullDateSplit = lastUpdated.split(' ')
         const dateSplit = fullDateSplit[0].split('/')
         const day = parseInt(dateSplit[0])
-        const month = dateSplit[1]
+        const month = parseInt(dateSplit[1])
         const year = dateSplit[2]
         const monthNames = [
             'January',

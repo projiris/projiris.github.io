@@ -1,14 +1,24 @@
-'use client';
 import {FunctionComponent, useEffect, useState} from 'react'
 import cn from 'classnames'
 import Link from 'next/link';
 import styles from './menu.module.css'
 import {MenuProps} from "./types";
+//import { useRouter } from "next/navigation";
+import {CategoryArticlesList} from "./CategoryArticlesList";
+import {CategoryList} from "@/components/layout/Menu/CategoryList";
 
 // import { avoidReload } from '../../utils/avoidReload.js'
 // import prefixUriIfNeeded from '../../utils/prefixUriIfNeeded.js'
 
+function getActiveCategoryFromPathname(pathname: string): string {
+    return pathname.split('/categories/')[1]
+}
+
 export const Menu: FunctionComponent<MenuProps> = ({ categories, articles, menuVisible }) => {
+    // const router = useRouter();
+    //const pathname = useRouter()
+    //const activeCategory = getActiveCategoryFromPathname(pathname)
+    /*
     const [activeCategory, setActiveCategory] = useState<string>('')
     const toggleCategory = (event) => {
         const category = event.target.dataset.category
@@ -17,6 +27,7 @@ export const Menu: FunctionComponent<MenuProps> = ({ categories, articles, menuV
     useEffect(() => {
         setActiveCategory(Object.values(categories)?.[0]?.id ?? '')
     }, [categories])
+    */
     return <nav id="menu" className={cn(styles.menu, menuVisible && styles.menuOpen)}>
             <ul className={styles.menuList}>
                 <li className={styles.item}>
@@ -54,49 +65,6 @@ export const Menu: FunctionComponent<MenuProps> = ({ categories, articles, menuV
                 </li>
             </ul>
             <hr className={styles.separator} />
-            <ul className={styles.menuList}>
-                {Object.values(categories).map(
-        (category, index) =>
-                        <li key={category.id}>
-                            <i className={'fas fa-angle-right ' + styles.icon} />
-                            <button
-                                title={category.title}
-                                onClick={toggleCategory}
-                                className={styles.itemLink}
-                                data-category={category.id}
-                            >
-                                {category.title}
-                            </button>
-
-                            <ul className={styles.subList}>
-                                {Object.values(articles)
-            .filter(
-                (article) =>
-                    article.categoryId === category.id
-            )
-            .map(
-                (article) =>
-                                            <li
-                                                key={article.id}
-                                                className={cn(styles.subItem, (category.id ===
-                                                    activeCategory) && styles.subItemExpanded)}
-                                            >
-                                                <Link
-                                                    key={article.id}
-                                                    title={article.title}
-                                                    href={article.uri}
-                                                    className={styles.subItemLink}
-                                                    //onClick={avoidReload}
-                                                >
-                                                    {article.title}
-                                                </Link>
-                                            </li>
-
-            )}
-                            </ul>
-                        </li>
-
-    )}
-            </ul>
+            <CategoryList categories={categories} articles={articles} />
         </nav>
 }

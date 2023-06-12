@@ -20,7 +20,7 @@
     width: 100%;
 }
 .pageContent {
-    padding: 5rem;
+    padding: 2rem;
     overflow-x: hidden;
     max-width: 100%;
     transition: width linear 750ms;
@@ -40,6 +40,7 @@
         display: block;
     }
     .pageContent {
+        padding: 5rem;
         width: 100%;
     }
     .pageContent.contentNarrow {

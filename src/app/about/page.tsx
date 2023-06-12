@@ -1,14 +1,20 @@
 import {PageContainer} from "@/components/layout/PageContainer";
 import styles from './page.module.css'
 import Link from "next/link";
+import {fetchCategories} from "@/lib/categories";
 
-export default function Page () {
+export default async function Page () {
+    const { categories, articles } = await fetchCategories()
+
     return (
         <PageContainer title="About"
                        subtitle="We help your projects complete in time."
                        description="Since 2003."
                        sidebarImage='/assets/default-about.jpg'
-                       showLinks={false}>
+                       showLinks={false}
+                       articles={articles}
+                       categories={categories}
+        >
             <div className={styles.aboutContent}>
                 <img
                     src='/assets/nigeria.jpg'

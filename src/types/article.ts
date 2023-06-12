@@ -5,6 +5,7 @@ export type Article = {
     id: string;
     categoryId: string;
     image: string;
+    date?: string;
 }
 
 export type Articles = Record<string, Article>

@@ -1,0 +1,38 @@
+.icon {
+    padding: 0 20px;
+    color: #dadada;
+    font-size: 1.6rem;
+}
+
+ul.menuList {
+    padding: 10px 0;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    list-style-type: none;
+}
+.item {
+    margin: 0;
+    list-style: none;
+    padding: 10px 0;
+    font-size: 1.6rem;
+    line-height: 1.65;
+}
+.itemLink {
+    color: #dadada;
+    font-weight: 500;
+    font-size: large;
+    border-bottom: 0 transparent;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    font-family: Arial;
+}
+.itemLink:hover {
+    color: #fff;
+    outline: 0;
+}
+.itemLink:focus {
+    outline: 0;
+}

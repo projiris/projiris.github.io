@@ -1,6 +1,6 @@
 import capitalize from '@/utils/capitalize'
 import {FunctionComponent} from "react";
-import {BaseInputProps} from "@/components/form/types";
+import {BaseInputProps} from "@/components/form/BaseInput/types";
 import styles from '@/styles/input.module.css'
 
 export const BaseInput: FunctionComponent<BaseInputProps> = ({

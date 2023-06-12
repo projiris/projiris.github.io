@@ -1,8 +1,8 @@
-import {Article, Category} from "@/types";
+import {Articles, Article, Category} from "@/types";
 
 export type FooterProps = {
     article: Article;
     category: Category;
-    menuVisible: boolean;
-    articles: Article[];
+    isMenuVisible: boolean;
+    articles: Articles;
 }

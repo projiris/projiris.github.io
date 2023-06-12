@@ -1,4 +1,4 @@
-import {FunctionComponent} from "react";
+import React, {FunctionComponent} from "react";
 import {DisqusCount} from '@/components/disqus/disqusCount'
 import {Article as ArticleBlock} from '@/components/blocks/Article'
 import {Category as CategoryBlock} from '@/components/blocks/Category'
@@ -8,70 +8,74 @@ import {useActivePanel} from '@/hooks/useActivePanel'
 import styles from "./styles.module.css"
 import blockStyles from '@/styles/blocks.module.css'
 import cn from "classnames";
-import {Panels} from "@/types/panels";
+import {Panels, PanelType} from "@/types/panels";
 import {PostsAndCategoriesProps} from "./types";
+import Link from "next/link";
 
+export const PostsAndCategories: FunctionComponent<PostsAndCategoriesProps> = ({
+                                                                                   articles,
+                                                                                   categories,
+                                                                                   activeCategoryId = '',
+                                                                                    activePanel = Panels.POSTS,
+                                                                               }) => {
 
-export const PostsAndCategories: FunctionComponent<PostsAndCategoriesProps> = ({activeCategoryId = ''}) => {
-
-    const { categories, articles } = useCategoriesAndArticles()
+    // const { categories, articles } = useCategoriesAndArticles()
     //activeCategoryId = activeCategoryId || Object.keys(categories)[0]
     //const {activeItemId: activeCategoryId} = usePath()
     //const activeCategoryId = state?.activeItemId ?? getActiveItemId()
 
-    const { activePanel, setActivePanel } = useActivePanel()
-    const handleSelectPanel = (event) => {
-        const selectedPanel = event.target.dataset.panel
+
+    /*
+    const handleSelectPanel = (event: React.MouseEvent<HTMLElement>) => {
+        const selectedPanel = event.currentTarget.dataset.panel as PanelType
         setActivePanel(selectedPanel)
     }
-
+    */
     return (
         <>
             <div className={styles.togglePostsCategory}>
-                <button
+                <Link
                     className={cn(styles.togglePanel, activePanel === Panels.POSTS && styles.buttonActive)}
-                    onClick={handleSelectPanel}
+                    href={Panels.POSTS}
                     data-panel={Panels.POSTS}
                 >
                     Posts
-                </button>
-                <button
+                </Link>
+                <Link
                     className={cn(styles.togglePanel, activePanel === Panels.CATEGORIES && styles.buttonActive)}
-                    onClick={handleSelectPanel}
+                    href={Panels.CATEGORIES}
                     data-panel={Panels.CATEGORIES}
                 >
                     Categories
-                </button>
-        </div>
-        <div
-            className={cn(styles.list, styles.postsOrCategories, activePanel === Panels.POSTS ? blockStyles.fadeIn : styles.hide)}
-        >
-            {Object.values(articles)
-            .filter(
-                (article) =>
-                    !activeCategoryId ||
-                    article.categoryId === activeCategoryId
-            )
-            .map(
-                (article) => <ArticleBlock
-                                key={article.id}
-                                article={article}
-                                category={categories[article.categoryId]}
-                            />
-
-            )}
-        </div>
-        <div
-            className={cn(styles.list, styles.postsOrCategories, activePanel === Panels.CATEGORIES ? blockStyles.fadeIn : styles.hide)}
-        >
-            {Object.values(categories).map(
-            (category) => <CategoryBlock
-                            key={category.id}
-                            category={category}
-                            setActivePanel={setActivePanel}
+                </Link>
+            </div>
+            <div
+                className={cn(styles.list, styles.postsOrCategories, activePanel === Panels.POSTS ? blockStyles.fadeIn : styles.hide)}
+            >
+                {Object.values(articles)
+                    .filter(
+                        (article) =>
+                            !activeCategoryId ||
+                            article.categoryId === activeCategoryId
+                    )
+                    .map(
+                        (article) => <ArticleBlock
+                            key={article.id}
+                            article={article}
+                            category={categories[article.categoryId]}
                         />
-        )}
-        </div>
-        <DisqusCount categories={categories} />
-    </>)
+                    )}
+            </div>
+            <div
+                className={cn(styles.list, styles.postsOrCategories, activePanel === Panels.CATEGORIES ? blockStyles.fadeIn : styles.hide)}
+            >
+                {Object.values(categories).map(
+                    (category) => <CategoryBlock
+                        key={category.id}
+                        category={category}
+                    />
+                )}
+            </div>
+            <DisqusCount categories={categories}/>
+        </>)
 }

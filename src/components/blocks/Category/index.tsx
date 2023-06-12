@@ -4,7 +4,7 @@ import categoryStyles from './category.module.css'
 import {CategoryProps} from "@/components/blocks/Category/types";
 import {Panels} from "@/types/panels";
 
-export const Category: FunctionComponent<CategoryProps> = ({category, setActivePanel}) => {
+export const Category: FunctionComponent<CategoryProps> = ({category}) => {
 
     return (
         <Link
@@ -12,9 +12,6 @@ export const Category: FunctionComponent<CategoryProps> = ({category, setActiveP
             className={categoryStyles.categoryBlock}
             style={{
                 backgroundImage: `url(${category.image})`,
-            }}
-            onClick={(event) => {
-                setActivePanel(Panels.POSTS)
             }}
         >
             <h2 className={categoryStyles.title + " title"} title={category.title}>{category.title}</h2>

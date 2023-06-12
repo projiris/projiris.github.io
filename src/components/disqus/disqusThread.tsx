@@ -1,3 +1,4 @@
+'use client'
 import {FunctionComponent, useEffect, useState} from 'react'
 import { to } from '@/utils/to'
 import {DISQUS_SHORTNAME} from "@/constants";

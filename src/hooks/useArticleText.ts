@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Drive } from '@/lib/drive'
 import {ArticleTexts, CurrentlyFetching} from "@/hooks/types";
-
+/*
 export const useArticleText = (articleId) => {
     const [isFetching, setIsFetching] = useState<CurrentlyFetching>({})
     const [texts, setTexts] = useState<ArticleTexts>({})
@@ -36,3 +36,4 @@ export const useArticleText = (articleId) => {
     }, [articleId, texts, isFetchingArticle])
     return article
 }
+*/
